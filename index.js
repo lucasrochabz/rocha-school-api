@@ -1,27 +1,15 @@
 const express = require('express');
-const { getDBConnection } = require("./utils/getDBConnection");
 
-const server = express();
+const { listTeachers } = require('./src/controllers/testeController')
 
-server.use(express.json());
+const app = express();
 
-server.get('/list', async (req, res) => {
-  try {
-      const connection = await getDBConnection();
+app.get('/school', listTeachers);
 
-      const results = await connection.query(
-          'SELECT * FROM teachers'
-      );
+app.get('/', (req,res) => {
+  res.send('Olá mundo!')
+})
 
-      console.log(results); // Adicionando um console.log para ver os resultados
-
-      res.json({professores: results}); // Enviando apenas os resultados
-  } catch (error) {
-      console.error("Erro ao obter dados do banco de dados:", error);
-      res.status(500).json({ error: "Erro ao obter dados do banco de dados" });
-  }
-});
-
-server.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+app.listen(3000, () => {
+  console.log('Servidor rodando na porta 3000')
 });

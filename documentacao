@@ -1,0 +1,7 @@
+scripts:
+  nodemon
+
+dependencies:
+  express
+  mysql2
+  nodemon

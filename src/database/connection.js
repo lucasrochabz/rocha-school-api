@@ -1,15 +1,14 @@
-const mysql = require('mysql');
+const mysql = require('mysql2/promise')
 
-const getDBConnection = async () => {
+const connectionDB = async () => {
   const connection = await mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
     database: 'rochaschool',
     port: 3306,
-  });
-  
-  return connection;
+  })
+  return connection
 }
 
-module.exports = { getDBConnection };
+module.exports = { connectionDB }
