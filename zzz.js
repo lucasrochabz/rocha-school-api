@@ -1,0 +1,2 @@
+// login
+[post] = '/login', cresteUser

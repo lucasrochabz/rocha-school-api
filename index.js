@@ -1,10 +1,13 @@
 const express = require('express');
 
-const { listTeachers } = require('./src/controllers/testeController')
+const { listTeachers, createUser } = require('./src/controllers/testeController')
 
 const app = express();
+app.use(express.json());
 
 app.get('/school', listTeachers);
+
+app.post('/login', createUser);
 
 app.get('/', (req,res) => {
   res.send('Olá mundo!')
