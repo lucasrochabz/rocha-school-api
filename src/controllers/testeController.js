@@ -1,4 +1,4 @@
-const { request, response } = require('express');
+// const { request, response } = require('express');
 const { list, create } = require('../model/testeOrder')
 
 const listTeachers = async (req, res) => {
@@ -8,11 +8,11 @@ const listTeachers = async (req, res) => {
 }
 
 const createUser = async (req, res) => {
-  const { nome, email, senha } = request.body;
-  const createUser = await create(nome, email, senha);
+  const { nome, email, senha } = req.body;
+  const createUser = await create( nome, email, senha );
 
   if(createUser) {
-    response.json({message: 'Usuário criado com sucesso'})
+    res.json({message: 'Usuário criado com sucesso'})
   }
 }
 
