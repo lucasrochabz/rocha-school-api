@@ -1,2 +1,14 @@
+// home
+[] = '/', abc
+
+// cadastrar - ok
+[post] = '/signup', createUser
+
 // login
-[post] = '/login', cresteUser
+[get] = '/login'
+
+// cadastrar professor
+[post] = '/create-teacher', createTeacher
+
+//listar professor - ok
+[get] = '/list' , listTeacher

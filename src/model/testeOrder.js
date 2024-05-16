@@ -17,7 +17,17 @@ const create = async (nome, email, senha) => {
   return results;
 }
 
+const createT = async (nome, materia, turno) => {
+  const connection = await connectionDB();
+  const [results] = await connection.query(
+    'INSERT INTO teachers (nome, materia, turno) VALUES (?, ?, ?)',
+    [nome, materia, turno]
+  );
+  return results
+}
+
 module.exports = {
   list,
-  create
+  create,
+  createT
 }
