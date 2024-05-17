@@ -13,9 +13,10 @@ const usersController = {
   authUser: async (req, res) => {
     const { email, senha } = req.body;
     const auth = await getOne(email, senha);
+    console.log(auth.length)
 
-    if (auth) {
-        res.json({ message: 'Você está logado!' });
+    if (auth.length > 0) {
+        res.json({ message: 'Seja bem vindo!' });
     } else {
         res.status(401).json({ error: 'Credenciais inválidas' });
     }

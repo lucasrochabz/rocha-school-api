@@ -13,11 +13,11 @@ const create = async (nome, email, senha) => {
 // SELECT id, nome, email FROM sua_tabela_usuarios WHERE email = ? AND senha = ?;
 const getOne = async (email, senha) => {
   const connection = await connectionDB();
-  const [results] = await connection.query(
-    'SELECT id FROM users WHERE email = ? AND senha = ?',
+  const results = await connection.query(
+    'SELECT * FROM users WHERE email = ? AND senha = ?',
     [email, senha]
   );
-  return results
+  return results[0]
 }
 
 module.exports = {

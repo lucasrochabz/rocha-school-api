@@ -9,7 +9,7 @@ app.use(express.json());
 app.post('/signup', usersController.createUser);
 app.get('/login', usersController.authUser);
 
-app.get('/school', teacherController.list);
+app.get('/school', teacherController.listAll);
 app.post('/create-teacher', teacherController.createOne);
 
 app.get('/', (req,res) => {

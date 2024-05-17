@@ -1,7 +1,7 @@
-const { list, createT} = require('../model/users')
+const { list, create} = require('../model/teachers')
 
 const teacherController = {
-  list: async (req, res) => {
+  listAll: async (req, res) => {
     const selectTeachers = await list();
   
     res.json(selectTeachers)
@@ -9,7 +9,7 @@ const teacherController = {
 
   createOne: async (req, res) => {
     const { nome, materia, turno } = req.body;
-    const createTeacher = await createT(nome, materia, turno);
+    const createTeacher = await create(nome, materia, turno);
   
     if(createTeacher) {
       res.json({message: 'Professor cadastrado com sucesso'})
