@@ -1,4 +1,4 @@
-const { create } = require('../model/users')
+const { create, getOne } = require('../model/users')
 
 const usersController = {
   createUser: async (req, res) => {
@@ -15,7 +15,9 @@ const usersController = {
     const auth = await getOne(email, senha);
 
     if (auth) {
-      res.json({message: 'Você está logado!'})
+        res.json({ message: 'Você está logado!' });
+    } else {
+        res.status(401).json({ error: 'Credenciais inválidas' });
     }
   }
 }
