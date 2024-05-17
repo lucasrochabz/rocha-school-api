@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 
 app.post('/signup', usersController.createUser);
+app.get('/login', usersController.authUser);
 
 app.get('/school', teacherController.list);
 app.post('/create-teacher', teacherController.createOne);
