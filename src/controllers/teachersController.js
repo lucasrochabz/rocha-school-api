@@ -1,7 +1,6 @@
-const { list, createT} = require('../model/testeOrder')
+const { list, createT} = require('../model/users')
 
 const teacherController = {
-
   list: async (req, res) => {
     const selectTeachers = await list();
   

@@ -1,7 +1,7 @@
-const { create } = require('../model/testeOrder')
+const { create } = require('../model/users')
 
 const usersController = {
-  create: async (req, res) => {
+  createUser: async (req, res) => {
     const { nome, email, senha } = req.body;
     const createUser = await create(nome, email, senha);
   

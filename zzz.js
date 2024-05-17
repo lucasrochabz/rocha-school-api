@@ -1,14 +1,13 @@
-// home
-[] = '/', abc
-
 // cadastrar - ok
 [post] = '/signup', createUser
-
-// login
-[get] = '/login'
-
-// cadastrar professor
+// login user
+[get] = '/login', login
+//listar professores - ok
+[get] = '/list' , listTeacher
+// cadastrar professor - ok
 [post] = '/create-teacher', createTeacher
 
-//listar professor - ok
-[get] = '/list' , listTeacher
+// =================================================
+// prioridade menor
+// atualizar cadastro de professores
+[put] = '/listTeacher/:teacherId', updateTeacher
