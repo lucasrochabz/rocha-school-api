@@ -1,10 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 
 const { usersController } = require('./src/controllers/usersController');
 const { teacherController } = require('./src/controllers/teachersController');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.post('/signup', usersController.createUser);
 app.get('/login', usersController.authUser);
